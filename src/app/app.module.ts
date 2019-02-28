@@ -9,9 +9,19 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FirestoreSettingsToken} from '@angular/fire/firestore';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
+import { ClaimListComponent } from './claim-list/claim-list.component';
+import { RegistryComponent } from './registry/registry.component';
+import { TotalAmountPipe } from './total-amount.pipe';
+import { SearchPipePipe } from './search-pipe.pipe';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ClaimListComponent,
+    RegistryComponent,
+    TotalAmountPipe,
+    SearchPipePipe,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

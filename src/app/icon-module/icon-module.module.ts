@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
-import { IconXCircle } from 'angular-feather';
+import { IconXCircle, IconSun, IconSearch } from 'angular-feather';
  
 const icons = [
-  IconXCircle
+  IconXCircle,
+  IconSun,
+  IconSearch
 ];
  
 @NgModule({

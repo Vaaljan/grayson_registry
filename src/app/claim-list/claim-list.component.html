@@ -1,0 +1,29 @@
+<div class="">
+    <h4 class="text-center">Claim List</h4>
+    <br/>
+    <app-search-bar (search)="searchText=$event" [searchText]="searchText"></app-search-bar>
+    <div class="container mt-2">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th width="50%">Gift Name</th>
+          <th width="40%" class="text-center">Claimed By</th>
+          <th width="10%" class="text-center">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gift of gifts | async | searchPipe: searchText">
+          <td>{{gift.name}}</td>
+          <td>
+            <span *ngFor="let claim of gift.claims;let last=last">
+              {{claim.claimedBy}} - {{claim.quantity}} {{!last?'|':''}}
+            </span>
+          </td>
+          <td class="text-center">
+            {{gift.claims | totalAmount:'quantity'}}
+          </td>
+        </tr>
+      </tbody>
+    </table>  
+    </div>
+  </div>

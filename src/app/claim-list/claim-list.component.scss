@@ -1,0 +1,10 @@
+@import '~src/sass/main';
+
+.table{
+    th{
+        background-color: $grey;
+    }
+}
+.nowrap{
+    white-space: nowrap;
+}

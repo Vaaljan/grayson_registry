@@ -1,0 +1,61 @@
+@import '~src/sass/main';
+.form-control{
+    padding-left: 20px;
+    border-radius: 20px;
+    ::placeholder {
+        color: $grey;
+        opacity: .8;
+      }
+      :-ms-input-placeholder {
+        color: $grey;
+        opacity: .8; 
+      }
+      ::-ms-input-placeholder {
+        color: $grey;
+        opacity: .8; 
+      }
+}
+.search{
+    position: relative;
+    min-height: 40px;
+    .form-control{
+        position: absolute;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        border: 1px solid $green;
+        &:active,&:focus{
+            box-shadow: none;
+            outline: none;
+        }
+        z-index: 5;
+        -webkit-transition: all .3s ease-in;
+        -moz-transition: all .3s ease-in;
+        -o-transition: all .3s ease-in;
+        transition: all .3s ease-in;
+    }
+    &.show{
+        .form-control{
+           width: 40%;
+           border-radius: 20px;
+           color: $green;
+        }
+        .search-icon{
+           border:none;
+           padding: 0;
+        }
+       
+    }
+  
+}
+.search-icon{
+    position: absolute;
+    right:9px;
+    top: 8px;
+    color: $green;
+    cursor: pointer;
+    .feather{
+        cursor: pointer;
+    }
+    z-index: 10;
+}
