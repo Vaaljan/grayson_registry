@@ -1,0 +1,72 @@
+
+body{
+    font-family: 'Libre Baskerville', serif;
+    width: 100vw;
+    height: 100vh;
+    font-size: .9rem;
+}
+
+h1{
+    font-family: 'Wildera Regular';
+    color: $greyGreen;
+    font-size: 5.5rem;
+}
+
+.flowers-top-bg{
+    background-image: url('/assets/images/flowers_top.png');
+    background-repeat: no-repeat;
+    min-height: 190px;
+    width: 100%;
+    background-size: 50%;
+    background-position: top;
+}
+
+.animals-bottom-bg{
+    background-image: url('/assets/images/animals_bottom.png');
+    background-repeat: no-repeat;
+    min-height: 300px;
+    width: 100%;
+    background-size: 50%;
+    background-position: top;
+}
+
+@media (max-width:768px){
+    .flowers-top-bg{
+        min-height: 100px;
+        background-size: 100%;
+        background-position: bottom;
+    }
+    .animals-bottom-bg{
+        margin-top: 1rem;
+        background-size: 100%;
+    }
+}
+
+.btn{
+    background-color: transparent;
+    border-width: 2px;
+    border-radius: 20px;
+    border-style: solid;
+    color: $green;
+    &.btn-primary{
+        border-color: $green;
+        background-color: transparent;
+        &:hover{
+            background-color: $green;
+            color: #fff;
+        };
+    }
+    &:focus{
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.card{
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+.pointer{
+    cursor: pointer;
+}

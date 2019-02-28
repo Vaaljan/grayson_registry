@@ -1,0 +1,64 @@
+<div class="w-100 h-100">
+
+  <div class="flowers-top-bg">
+  </div>
+  <div class="">
+    <h1 class="text-center">Baba Grayson</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let gift of gifts | async">
+          <div class="card">
+            <h5 class="text-center">{{gift.name}}</h5>
+
+            <p class="text-center">
+              <a target="_blank" [href]="gift.url">View Item</a>
+            </p>
+
+            <p>
+              Description:<br />
+              {{gift.description}}
+            </p>
+
+            <p>Requested: {{gift.requestedQuantity}}</p>
+            <p>Claimed: {{gift.totalClaimed}}</p>
+
+            <div>
+              <button class="btn btn-primary mx-auto" *ngIf="!gift.showClaimed" (click)="gift.showClaimed=true;showUnclaimed=false">Claim
+                Gift</button>
+              <div class="d-flex flex-wrap claim-detail" *ngIf="gift.showClaimed">
+                <div class="close-btn pointer" (click)="gift.showClaimed = false"><i-x-circle></i-x-circle></div>
+                <div class="form-group w-100">
+                  <label>Enter Name</label>
+                  <input class="form-control" [(ngModel)]="gift.claimedBy" />
+                  <label>How many items would you like to claim? </label>
+                  <input class="form-control" type="number" min="0" [(ngModel)]="gift.claimQuantity" />
+                </div>
+                <button class="btn btn-primary mt-1 w-100" (click)="claimGift(gift)">Submit</button>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <p  *ngIf="!gift.showUnclaimed" class="small-text text-muted pointer text-center">Made a mistake? <a (click)="gift.showUnclaimed=true;gift.showClaimed=false">Click Here</a></p>
+              <div class="d-flex flex-wrap claim-detail" *ngIf="gift.showUnclaimed">
+                  <div class="close-btn pointer" (click)="gift.showUnclaimed = false"><i-x-circle></i-x-circle></div>
+                <div class="form-group w-100">
+                  <label>Enter Name</label>
+                  <input class="form-control" [(ngModel)]="gift.unclaimedBy" />
+                  <label>How many would you like to remove? </label>
+                  <input class="form-control" type="number" [(ngModel)]="gift.unclaimQuantity" />
+                </div>
+                <button class="btn btn-primary mt-1 w-100" (click)="unclaimGift(gift)">Remove Claim</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="animals-bottom-bg">
+
+  </div>
+</div>
+
+<ng-snotify></ng-snotify>

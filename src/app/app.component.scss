@@ -1,0 +1,36 @@
+@import '~src/sass/main';
+
+h5{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $grey;
+}
+.form-control{
+    padding-left: 20px;
+    border-radius: 20px;
+}
+
+.form-group{
+    label{
+        font-size: .9rem;
+    }
+}
+.close-btn{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.small-text {
+    font-size: .8rem;
+}
+.smaller-text{
+    font-size: .7rem;
+}
+.claim-detail{
+    background-color: $grey;
+    padding: 1rem;
+    position: relative;
+}
+
+a{
+    color: $lightGreen;
+}
