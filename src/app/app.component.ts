@@ -5,13 +5,13 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { SnotifyService } from 'ng-snotify';
 
 export interface IGift {
-  key:string;
+  key?:string;
   name:string;
   description:string;
   url:string;
   requestedQuantity:number;
-  totalClaimed:number;
-  unclaimName:string;
+  totalClaimed?:number;
+  unclaimName?:string;
   showClaimed?:boolean;
   showUnclaimed?:boolean;
   unclaimedBy?:string;
@@ -48,6 +48,7 @@ export class AppComponent implements OnInit{
     })
   }
 
+
   unclaimGift(gift:IGift){
     if(typeof gift.unclaimedBy == "undefined"|| gift.unclaimedBy == ""){
       this.notify.simple('Please Enter Your Name');
@@ -65,6 +66,7 @@ export class AppComponent implements OnInit{
         claimedBy:gift.unclaimedBy,
         id:this.db.createId()
       };
+      gift.unclaims = typeof gift.unclaims == 'undefined'?[]:gift.unclaims;
       gift.unclaims.push(claim);
       gift.totalClaimed -= gift.unclaimQuantity;
       delete gift.unclaimQuantity;
@@ -95,7 +97,9 @@ export class AppComponent implements OnInit{
       claimedBy:gift.claimedBy,
       id:this.db.createId()
     };
+    gift.claims = typeof gift.claims == 'undefined'?[]:gift.claims;
     gift.claims.push(claim);
+    gift.totalClaimed = typeof gift.totalClaimed=='undefined'?0:gift.totalClaimed;
     gift.totalClaimed += gift.claimQuantity;
 
     delete gift.unclaimQuantity;
